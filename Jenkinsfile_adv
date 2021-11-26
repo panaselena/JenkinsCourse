@@ -9,7 +9,7 @@ pipeline {
       }
       stage('Build') {
          steps {
-            echo 'Build process..'            
+            echo 'Build process. ..'            
             sh '''
                 cd "${WORKSPACE}/scripts/"
                 chmod 755 *.sh
