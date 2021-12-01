@@ -27,7 +27,7 @@ pipeline {
                sh '''
                
                 chmod -R 777 $WORKSPACE/
-                a=$WORKSPACE/
+                a=$WORKSPACE/../results/
                 python3 /home/lena/workspace/script/test.py >> $a/result_pth.txt
                
                
