@@ -75,7 +75,7 @@ pipeline {
                 cd /home/lena/workspace/script/
                
                 ./test.sh > $c/result_all.txt
-                python3 /home/lena/workspace/script/test.py > $c/result_all.txt
+                python3 /home/lena/workspace/script/test.py >> $c/result_all.txt
                     
         
                         
