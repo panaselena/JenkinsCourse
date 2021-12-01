@@ -50,7 +50,7 @@ pipeline {
                
                 
                 chmod -R 777 $WORKSPACE/
-                b=$WORKSPACE/
+                b=$WORKSPACE/../results/
                 cd /home/lena/workspace/script/
                
                 ./test.sh >> $b/result_bsh.txt
@@ -71,7 +71,7 @@ pipeline {
                
                 
                 chmod -R 777 $WORKSPACE/
-                c=$WORKSPACE/
+                c=$WORKSPACE/../results/
                 cd /home/lena/workspace/script/
                
                 ./test.sh >> $c/result_all.txt
