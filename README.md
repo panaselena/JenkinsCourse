@@ -3,7 +3,11 @@ pipeline {
     
     
     stages {
-   
+    stage('Clone Sources') {
+        steps {
+          checkout scm
+        } 
+      }
         
         
        stage ('Choice Language') {
