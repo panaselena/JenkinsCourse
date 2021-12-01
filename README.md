@@ -1,17 +1,12 @@
 
-
 pipeline {
-   agent any
-       
-    stages {
-        stage('Clone Sources') {
-    steps {
-      checkout scm
-      
-       }
-    }
-        
+   agent { node { label 'slave01' } }
     
+    
+    stages {
+   
+        
+        
        stage ('Choice Language') {
             steps {
             
