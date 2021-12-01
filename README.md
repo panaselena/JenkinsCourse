@@ -28,7 +28,7 @@ pipeline {
                
                 chmod -R 777 $WORKSPACE/
                 a=$WORKSPACE/../results/
-                python3 /home/lena/workspace/script/test.py >> $a/result_pth.txt
+                python3 /home/lena/workspace/script/test.py > $a/result_pth.txt
                
                
                 #python3 test.py >> $a/result_pth.txt
@@ -53,7 +53,7 @@ pipeline {
                 b=$WORKSPACE/../results/
                 cd /home/lena/workspace/script/
                
-                ./test.sh >> $b/result_bsh.txt
+                ./test.sh > $b/result_bsh.txt
                     
                            
                                                       '''
@@ -74,8 +74,8 @@ pipeline {
                 c=$WORKSPACE/../results/
                 cd /home/lena/workspace/script/
                
-                ./test.sh >> $c/result_all.txt
-                python3 /home/lena/workspace/script/test.py >> $c/result_all.txt
+                ./test.sh > $c/result_all.txt
+                python3 /home/lena/workspace/script/test.py > $c/result_all.txt
                     
         
                         
