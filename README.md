@@ -26,9 +26,8 @@ pipeline {
             steps {
                sh '''
                
-                mkdir Python_Lena
-                chmod -R 777 $WORKSPACE/Python_Lena/
-                a=$WORKSPACE/Python_Lena
+                chmod -R 777 $WORKSPACE/
+                a=$WORKSPACE/
                 python3 /home/lena/workspace/script/test.py >> $a/result_pth.txt
                
                
@@ -49,9 +48,9 @@ pipeline {
             steps {
                sh '''
                
-                mkdir Bash_Lena
-                chmod -R 777 $WORKSPACE/Bash_Lena/
-                b=$WORKSPACE/Bash_Lena
+                
+                chmod -R 777 $WORKSPACE/
+                b=$WORKSPACE/
                 cd /home/lena/workspace/script/
                
                 ./test.sh >> $b/result_bsh.txt
@@ -70,9 +69,9 @@ pipeline {
             steps {
                sh '''
                
-                mkdir All_Lena
-                chmod -R 777 $WORKSPACE/All_Lena/
-                c=$WORKSPACE/All_Lena
+                
+                chmod -R 777 $WORKSPACE/
+                c=$WORKSPACE/
                 cd /home/lena/workspace/script/
                
                 ./test.sh >> $c/result_all.txt
@@ -88,4 +87,5 @@ pipeline {
                                                       
     }
 }
+
 
