@@ -1,4 +1,3 @@
-
 pipeline {
    agent { node { label 'slave01' } }
     
@@ -85,3 +84,4 @@ pipeline {
                                                       
     }
 }
+
