@@ -30,7 +30,7 @@ stage('Clone Sources') {
             chmod -R 777 $WORKSPACE/
             a=$WORKSPACE/../results/
 	    if  ( ${LANGUAGE} == 'Python'){
-		#then
+		then
 
             		python3 /home/lena/workspace/script/test.py > $a/result_pth.txt
 			
