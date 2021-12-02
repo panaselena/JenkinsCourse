@@ -29,13 +29,13 @@ stage('Clone Sources') {
            
             chmod -R 777 $WORKSPACE/
             a=$WORKSPACE/../results/
-	    if  ( $LANGUAGE == 'Python');
+	    if  ( ${LANGUAGE} == 'Python');
 		then
 
             		python3 /home/lena/workspace/script/test.py > $a/result_pth.txt
 			
 		else
-		 echo 'False'
+		  echo '${LANGUAGE} is not Python'
            
            
             		#python3 test.py >> $a/result_pth.txt
@@ -58,13 +58,15 @@ stage('Clone Sources') {
             
             chmod -R 777 $WORKSPACE/
             b=$WORKSPACE/../results/
-            if  ( $LANGUAGE == 'Bash');
+            if  ( ${LANGUAGE} == 'Bash');
 		then
 
             cd /home/lena/workspace/script/
            
             ./test.sh > $b/result_bsh.txt
-                
+	    
+                else
+		  echo '${LANGUAGE} is not Bash'
                        
             fi                                      '''
             
@@ -82,11 +84,14 @@ stage('Clone Sources') {
             chmod -R 777 $WORKSPACE/
             d=$WORKSPACE/../results/
 
-	    if  ( $LANGUAGE == 'C' );
+	    if  ( ${LANGUAGE} == 'C' );
 		then
 
             echo "I'm sorry, I didn't learn the language 'С'" >> d/result_c.txt
-           
+	    
+	    
+           else
+		  echo '$LANGUAGE is not C'
                          
              fi          
                                                   '''
@@ -106,7 +111,7 @@ stage('Clone Sources') {
             chmod -R 777 $WORKSPACE/
             c=$WORKSPACE/../results/
 
-		if  ( $LANGUAGE == 'All' );
+		if  ( ${LANGUAGE} == 'All' );
 			then
 
            	 cd /home/lena/workspace/script/
