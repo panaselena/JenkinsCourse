@@ -61,6 +61,28 @@ pipeline {
              }
                 
           } 
+	  
+	  stage ('C') {
+            when {expression { LANGUAGE == 'C' }
+            }
+        
+            steps {
+               sh '''
+               
+                
+                chmod -R 777 $WORKSPACE/
+                d=$WORKSPACE/../results/
+                echo "I'm sorry, I didn't learn the language 'С'" >> d/result_c.txt
+               
+                             
+                           
+                                                      '''
+                
+             }
+                
+          } 
+	                      
+	  	  
           
          stage ('All') {
             when {expression { LANGUAGE == 'All' }
@@ -84,6 +106,10 @@ pipeline {
                                                       
             }
          }    
+	 
+	 
+	 
+	 
         stage('Saving Results') {
          steps {
             echo 'Saving Results process..'
