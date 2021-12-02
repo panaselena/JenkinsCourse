@@ -3,15 +3,15 @@ pipeline {
    agent { node { label 'slave01' } }
 
     stages {
-stage('Clone  Sources') {
+	stage('Clone  Sources') {
     steps {
       checkout scm
     } 
   }
     
     
-   stage ('Choice Language') {
-        steps {
+  	 stage ('Choice Language') {
+      	  steps {
         
           echo "You choose ${LANGUAGE}"
         
@@ -19,7 +19,7 @@ stage('Clone  Sources') {
     
   
     }
-    stage ('Python') {
+    	stage ('Python') {
         
         steps {
            sh '''
@@ -43,7 +43,7 @@ stage('Clone  Sources') {
       }
       
     
-     stage ('Bash') {
+    	 stage ('Bash') {
        
     
         steps {
