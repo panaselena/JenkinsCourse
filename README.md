@@ -98,7 +98,7 @@ pipeline {
                
                 ./test.sh > $c/result_all.txt
                 python3 /home/lena/workspace/script/test.py > $c/result_all.txt
-		echo "I'm sorry, I didn't learn the language 'С'" > c/result_all.txt
+		echo "I'm sorry, I didn't learn the language 'С'" > $c/result_all.txt
                     
         
                         
