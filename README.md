@@ -6,7 +6,7 @@ pipeline {
 
 
     stages {
-stage('Clone Sources') {
+stage('Clone  Sources') {
     steps {
       checkout scm
     } 
