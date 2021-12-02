@@ -10,7 +10,7 @@ pipeline {
       }
 
 
-  stages {
+  
     
        stage ('Choice  Language') {
             steps {
