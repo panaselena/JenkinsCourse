@@ -33,6 +33,9 @@ stage('Clone  Sources') {
 		then
 
             		python3 /home/lena/workspace/script/test.py > $a/result_pth.txt
+			
+		else
+		 echo 'False'
            
            
             		#python3 test.py >> $a/result_pth.txt
