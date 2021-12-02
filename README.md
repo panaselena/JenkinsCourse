@@ -43,7 +43,7 @@ stage('Clone Sources') {
             		#python3 test.py >> $a/result_pth.txt
 
                 
-            #fi           
+            fi           
                                                   '''
             
          }
