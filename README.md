@@ -1,6 +1,6 @@
+
 pipeline {
    agent { node { label 'slave01' } }
-
 
     stages {
 stage('Clone  Sources') {
@@ -111,10 +111,8 @@ stage('Clone  Sources') {
 
 		fi
                 
-    
-                    
-        
-                                                  '''
+                      
+                                                          '''
                                                   
         }
      }    
