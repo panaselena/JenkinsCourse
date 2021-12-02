@@ -1,4 +1,8 @@
-stages {
+pipeline {
+   agent { node { label 'slave01' } }
+
+
+    stages {
 stage('Clone  Sources') {
     steps {
       checkout scm
@@ -140,6 +144,3 @@ stage('Clone  Sources') {
      }
   }                                              
 }
-
-
-
