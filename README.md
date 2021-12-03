@@ -93,13 +93,14 @@ stage('Clone Sources') {
 	{
            sh '''
             cd /home/lena/workspace/results
-            echo "C" > /home/lena/workspace/results/result_c.txt
+            echo 'C' > /home/lena/workspace/results/result_c.txt
 		'''
 	}
 	    
 	    
-           else{
-		sh '''
+           else
+	   {
+	    sh '''
 		  echo 'C not working'
 			'''
                         
