@@ -92,7 +92,7 @@ stage('Clone Sources') {
 	if ("$LANGUAGE" == 'C')
 	{
            sh '''
-            cd /home/lena/workspace/results
+            
             echo 'C' > /home/lena/workspace/results/result_c.txt
 		'''
 	}
