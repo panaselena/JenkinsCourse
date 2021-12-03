@@ -94,8 +94,8 @@ stage('Clone Sources') {
            sh '''
            
             
-            d=$WORKSPACE/../results/
-            echo "I'm sorry, I didn't learn the language 'С', Next time i will do this code" > $d/result_c.txt
+            cd /home/lena/workspace/results
+            echo "I'm sorry, I didn't learn the language 'С', Next time i will do this code" > /home/lena/workspace/results/result_c.txt
 		'''
 	}
 	    
