@@ -27,7 +27,7 @@ stage('Clone Sources') {
 	{	
            sh '''
            
-            chmod -R 777 $WORKSPACE/
+            #chmod -R 777 $WORKSPACE/
             a=$WORKSPACE/../results/
 	    echo 'executing pth'
             python3 /home/lena/workspace/script/test.py > $a/result_pth.txt
@@ -58,7 +58,7 @@ stage('Clone Sources') {
            sh '''
            
             
-            chmod -R 777 $WORKSPACE/
+            #chmod -R 777 $WORKSPACE/
             b=$WORKSPACE/../results/
            echo 'executing bsh'
 
@@ -93,7 +93,7 @@ stage('Clone Sources') {
 	{
            sh '''
            
-            chmod -R 777 $WORKSPACE/
+            #chmod -R 777 $WORKSPACE/
             d=$WORKSPACE/../results/
             echo "I'm sorry, I didn't learn the language 'С', Next time i will do this code" > $d/result_c.txt
 		'''
