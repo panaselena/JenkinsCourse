@@ -92,10 +92,8 @@ stage('Clone Sources') {
 	if ("$LANGUAGE" == 'C')
 	{
            sh '''
-           
-            
             cd /home/lena/workspace/results
-            echo "I'm sorry, I didn't learn the language 'С', Next time i will do this code" > /home/lena/workspace/results/result_c.txt
+            echo "C" > /home/lena/workspace/results/result_c.txt
 		'''
 	}
 	    
