@@ -117,8 +117,8 @@ stage('Clone Sources') {
         steps {
 
 	script {
-	if ($LANGUAGE" == 'All')
-	(
+	if ("$LANGUAGE" == 'All')
+	{
            sh '''
            
             
