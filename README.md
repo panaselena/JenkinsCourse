@@ -29,7 +29,7 @@ stage('Clone Sources') {
            
             
             a=$WORKSPACE/../results/
-	    echo 'executing pth'
+	    echo 'executing  pth'
             python3 /home/lena/workspace/script/test.py > $a/result_pth.txt
 	    echo 'pth done working'
 	    '''
