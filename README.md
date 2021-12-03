@@ -1,6 +1,3 @@
-
-
-
 pipeline {
    agent { node { label 'slave01' } }
 
@@ -25,113 +22,132 @@ stage('Clone Sources') {
     stage ('Python') {
         
         steps {
+		script{
+	if ("$LANGUAGE" == 'Python')
+	{	
            sh '''
            
             chmod -R 777 $WORKSPACE/
             a=$WORKSPACE/../results/
-	    if  [ ${LANGUAGE} == 'Python' ];
-		then
-
-            		python3 /home/lena/workspace/script/test.py > $a/result_pth.txt
+	    echo 'executing pth'
+            python3 /home/lena/workspace/script/test.py > $a/result_pth.txt
+	    echo 'pth done working'
+	    '''
+		}
 			
 		 else 
-		  echo '${LANGUAGE} is not Python' 
+		  {
+	sh '''echo 'Python not working' '''
            
-	   
-           
-           
-            		#python3 test.py >> $a/result_pth.txt
-
-                
-            fi           
-                                                  '''
-            
+	    }                                	               
+          
          }
             
       }
-      
+  }    
     
      stage ('Bash') {
        
     
         steps {
+
+	script {
+
+	if ( "$LANGUAGE" == 'Bash' )
+	{
            sh '''
            
             
             chmod -R 777 $WORKSPACE/
             b=$WORKSPACE/../results/
-            if  [ ${LANGUAGE} == 'Bash'];
-		then
+           echo 'executing bsh'
 
             cd /home/lena/workspace/script/
            
             ./test.sh > $b/result_bsh.txt
+		echo 'bsh done working'
+				'''
+		}
 	    
+	
                 else
-		  echo '${LANGUAGE} is not Bash'
-                       
-            fi                                      '''
-            
-         }
-            
-      } 
+		{
+		sh '''
+
+		  echo 'Bash not working'
+		'''
+	    }
+
+	}
+     }
+}                  
+                                                 '''
+             
   
-  stage ('C') {
+ 	 stage ('C') {
       
         steps {
+
+	script {
+	if ("$LANGUAGE" == 'C')
+	{
            sh '''
            
-           
-
             chmod -R 777 $WORKSPACE/
             d=$WORKSPACE/../results/
-
-	    if  [ ${LANGUAGE} == 'C' ];
-		then
-
-            echo "I'm sorry, I didn't learn the language 'С'" >> d/result_c.txt
+            echo "I'm sorry, I didn't learn the language 'С', Next time i will do this code" > $d/result_c.txt
+		'''
+	}
 	    
 	    
-           else
-		  echo '$LANGUAGE is not C'
-                         
-             fi          
-                                                  '''
-            
+           else{
+		sh '''
+		  echo 'C not working'
+			'''
+                        
+                                                                                
          }
             
       } 
-                      
+     }
+}                 
   	  
       
      stage ('All') {
        
         steps {
+
+	script {
+	if ($LANGUAGE" == 'All')
+	(
            sh '''
            
             
             chmod -R 777 $WORKSPACE/
             c=$WORKSPACE/../results/
+	   	
+		echo 'executing all=pth+bsh+C'
 
-		if  [ ${LANGUAGE} == 'All' ];
-			then
-
+		
            	 cd /home/lena/workspace/script/
            
           	  ./test.sh >> $c/result_all.txt
             	  python3 /home/lena/workspace/script/test.py >> $c/result_all.txt
 	          echo "I'm sorry, I didn't learn the language 'С'" >> $c/result_all.txt
+		  echo 'all done working except C'
+		  '''
+		}
+	
+	  	  else
+		{
+		sh ''' echo 'All not working'
 
-		fi
-                
-    
-                    
+		'''                    
         
-                                                  '''
-                                                  
-        }
-     }    
- 
+    		 }    
+ 	}
+	}
+	}
  
  
  
@@ -158,3 +174,6 @@ stage('Clone Sources') {
        }                                              
     }
 }
+
+
+
