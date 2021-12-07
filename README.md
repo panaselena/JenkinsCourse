@@ -1,29 +1,26 @@
 pipeline {
    agent { node { label 'slave01' } }
 
-
     stages {
 stage('Clone Sources') {
     steps {
       checkout scm
     } 
   }
-    
-    
+        
    stage ('Choice Language') {
         steps {
         
           echo "You choose ${LANGUAGE}"
         
         }   
-    
-  
+      
     }
     stage ('Python') {
         
         steps {
 		script{
-	if ("$LANGUAGE" == 'Python')
+	if ("$LANGUAGE" == 'Python'||"$LANGUAGE" == 'All' )
 	{	
            sh '''
                        
@@ -46,7 +43,7 @@ stage('Clone Sources') {
 
 	script {
 
-	if ( "$LANGUAGE" == 'Bash' )
+	if ( "$LANGUAGE" == 'Bash'||"$LANGUAGE" == 'All' )
 	{
            sh '''
            
@@ -74,7 +71,7 @@ stage('Clone Sources') {
         steps {
 
 	script {
-	if ("$LANGUAGE" == 'C')
+	if ("$LANGUAGE" == 'C' || "$LANGUAGE" == 'All')
 	{
            sh '''
             
@@ -142,3 +139,6 @@ stage('Clone Sources') {
        }                                              
     }
 }
+
+
+
