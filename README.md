@@ -10,7 +10,7 @@ stage('Clone Sources') {
   }
     
     
-   stage ('Choice Language') {
+   stage ('Choice  Language') {
         steps {
         
           echo "You choose ${LANGUAGE}"
