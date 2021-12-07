@@ -47,8 +47,7 @@ stage('Clone Sources') {
 	{
            sh '''
            
- 
-                        
+                         
             b=$WORKSPACE/../results/
            echo 'executing bsh'
 
@@ -64,8 +63,7 @@ stage('Clone Sources') {
      }
 }                  
                                                  
-             
-  
+               
  	 stage ('C') {
       
         steps {
@@ -79,42 +77,12 @@ stage('Clone Sources') {
 		'''
 	}
 	    
-	    
                       
       } 
      }
 }                 
   	  
-      
-     stage ('All') {
-       
-        steps {
-
-	script {
-	if ("$LANGUAGE" == 'All')
-	{
-           sh '''
-           
-            
-            chmod -R 777 $WORKSPACE/
-            c=$WORKSPACE/../results/
-	   	
-		echo 'executing all=pth+bsh+C'
-
-		
-           	 cd /home/lena/workspace/script/
-           
-          	  ./test.sh >> $c/result_all.txt
-            	  python3 /home/lena/workspace/script/test.py >> $c/result_all.txt
-	          echo "I'm sorry, I didn't learn the language 'С'" >> $c/result_all.txt
-		  echo 'all done working except C'
-		  '''
-		}
-	
- 	}
-	}
-	}
- 
+         
   
     stage('Saving Results') {
      steps {
