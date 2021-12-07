@@ -10,7 +10,7 @@ stage('Clone Sources') {
   }
     
     
-   stage ('Choice  Language') {
+   stage ('Choice Language') {
         steps {
         
           echo "You choose ${LANGUAGE}"
@@ -26,29 +26,22 @@ stage('Clone Sources') {
 	if ("$LANGUAGE" == 'Python')
 	{	
            sh '''
-           
-            
+                       
             a=$WORKSPACE/../results/
 	    echo 'executing  pth'
-            python3 /home/lena/workspace/script/test.py > $a/result_pth.txt
+            python3 $a/../script/test.py > $a/result_pth.txt
 	    echo 'pth done working'
 	    '''
 		}
 			
-		 else 
-		  {
-	sh '''echo 'Python not working' '''
-           
-	    }                                	               
+		                
+            }
           
-         }
-            
       }
   }    
     
      stage ('Bash') {
        
-    
         steps {
 
 	script {
@@ -57,12 +50,12 @@ stage('Clone Sources') {
 	{
            sh '''
            
-            
-            
+ 
+                        
             b=$WORKSPACE/../results/
            echo 'executing bsh'
 
-            cd /home/lena/workspace/script/
+            cd $b/../script
            
             ./test.sh > $b/result_bsh.txt
 		echo 'bsh done working'
@@ -70,15 +63,7 @@ stage('Clone Sources') {
 		}
 	    
 	
-                else
-		{
-		sh '''
-
-		  echo 'Bash not working'
-		'''
-	    }
-
-	}
+           }
      }
 }                  
                                                  
@@ -98,15 +83,7 @@ stage('Clone Sources') {
 	}
 	    
 	    
-           else
-	   {
-	    sh '''
-		  echo 'C not working'
-			'''
-                        
-                                                                                
-         }
-            
+                      
       } 
      }
 }                 
@@ -137,19 +114,11 @@ stage('Clone Sources') {
 		  '''
 		}
 	
-	  	  else
-		{
-		sh ''' echo 'All not working'
-
-		'''                    
-        
-    		 }    
  	}
 	}
 	}
  
- 
- 
+  
     stage('Saving Results') {
      steps {
         echo 'Saving Results process..'
@@ -173,6 +142,3 @@ stage('Clone Sources') {
        }                                              
     }
 }
-
-
-
